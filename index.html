@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Calculator</title>
+        <link rel="icon" href="images/favicon.ico" type="image/x-icon"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles/calculator.css" type="text/css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+        <h3 id="info">A simple calculator<br>Works as you think it does</h3>
+        <div class="outer-body">
+            <div class="display" id="display">
+                <!--ANSWERS WILL BE DISPLAYED HERE-->
+            </div>
+            <div class="keypad">
+                <button class="on-off" id="on-off" onclick="power()">ON/OFF</button>
+                <div class="row">
+                    <button onclick="update(7)">7</button>
+                    <button onclick="update(8)">8</button>
+                    <button onclick="update(9)">9</button>
+                    <button onclick="update('/')">/</button>
+                </div>
+                <div class="row">
+                    <button onclick="update(4)">4</button>
+                    <button onclick="update(5)">5</button>
+                    <button onclick="update(6)">6</button>
+                    <button onclick="update('*')">*</button>
+                </div>
+                <div class="row">
+                    <button onclick="update(1)">1</button>
+                    <button onclick="update(2)">2</button>
+                    <button onclick="update(3)">3</button>
+                    <button onclick="update('-')">-</button>
+                </div>
+                <div class="row">
+                    <button onclick="update(0)">0</button>
+                    <button onclick="update('.')">.</button>
+                    <button onclick="update('=')">=</button>
+                    <button onclick="update('+')">+</button>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="scripts/main.js"></script>
+</html>
