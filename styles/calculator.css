@@ -65,6 +65,7 @@ h3::first-line{
     background-color: antiquewhite;
     border-radius: 7px;
     text-align: right;
+    overflow: auto;
 }
 
 .keypad{

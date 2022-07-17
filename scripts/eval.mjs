@@ -1,9 +1,9 @@
-let s='1.2+3.6*5/2.6+4.5#';
+//let s='1.2+3.6*5/2.6+4.5#';
 let prec={
   '+':0,'-':0,'*':1,'/':2
 };
 let operand_stack=[],operator_stack=[];
-function makeString(numbers,symbols)
+function makeString(numbers,symbols,s)
 {
   let number='';
   for(let i=0;i<s.length;i=i+1)
@@ -20,11 +20,11 @@ function makeString(numbers,symbols)
   symbols.pop();
 }
 
-function eval()
+function test(exp)
 {
     let l=s.length,i=0;
     let numbers=[],symbols=[];
-    makeString(numbers,symbols);
+    makeString(numbers,symbols,exp);
     let expression=[];
     for(i=0;i<numbers.length+symbols.length;i=i+1)
     {
@@ -41,7 +41,3 @@ function eval()
     }
     console.log(expression);
 }
-
-module.exports={
-  prec,operand_stack,operator_stack,eval
-};
