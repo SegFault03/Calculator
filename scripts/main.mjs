@@ -1,7 +1,7 @@
 let p=false;
 let displayText='';
 let prec={
-    '+':0,'-':1,'*':2,'/':3
+    '+':0,'-':1,'*':2,'/':3,'(':-1
   };
 let operand_stack=[],operator_stack=[];
 //let reset=true;
@@ -70,22 +70,24 @@ function eval_op(a,b,op)
 
 function evalExp(array)
 {
-    let i=0,temp='',a=0,b=0;
+    let i=0,temp='',a=0,b=0,junk='';
     let l=array.length;
+    operator_stack.push('(');
     for(i=0;i<l;i++)
     {
         if(array[i]==')')
         {
             operand_stack.push(parseFloat(temp));
-            while(operator_stack.length!=0)
+            while(operator_stack[operator_stack.length-1]!='(')
             {
                 a=operand_stack.pop();
                 b=operand_stack.pop();
                 sym=operator_stack.pop();
                 operand_stack.push(eval_op(b,a,sym));
             }
+            junk=operator_stack.pop();
         }
-        else if(array[i]=='/'||array[i]=='+'||array[i]=='*'||array[i]=='-')
+        else if(array[i]=='/'||array[i]=='+'||array[i]=='*'||array[i]=='-'||array[i]=='(')
         {
             operand_stack.push(parseFloat(temp));
             while(operator_stack.length!=0&&prec[operator_stack[operator_stack.length-1]]>=prec[array[i]])
