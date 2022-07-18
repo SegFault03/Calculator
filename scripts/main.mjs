@@ -4,6 +4,7 @@ let prec={
     '+':0,'-':1,'*':2,'/':3,'(':-1
   };
 let operand_stack=[],operator_stack=[];
+let history=[];
 //let reset=true;
 function power()
 {
@@ -16,13 +17,27 @@ function power()
     display();
 }
 
+function reset()
+{
+    if(!p)
+    return;
+    displayText='0';
+    display();
+}
+
 function update(value)
 {
     if(!p)
     return;
     document.getElementById('info').innerHTML='Have fun!';
-    if(isNaN(value)&&value!='-'&&value!='=')
-    displayText+=value.toString();
+    if(isNaN(value)&&value!='-'&&value!='='&&value!='('&&value!=')')
+    {
+        // if(value===-1)
+        // value='(';
+        // if(value===-2)
+        // value=')';
+        displayText+=value.toString();
+    }
     else if(value=='=')
     {
         evalExp(displayText+')');
@@ -75,8 +90,16 @@ function evalExp(array)
     operator_stack.push('(');
     for(i=0;i<l;i++)
     {
-        if(array[i]==')')
+        if(array[i]=='(')
         {
+            if(temp!='')
+            operand_stack.push(parseFloat(temp));
+            operator_stack.push(array[i]);
+            temp='';
+        }
+        else if(array[i]==')')
+        {
+            if(temp!='')
             operand_stack.push(parseFloat(temp));
             while(operator_stack[operator_stack.length-1]!='(')
             {
@@ -86,9 +109,11 @@ function evalExp(array)
                 operand_stack.push(eval_op(b,a,sym));
             }
             junk=operator_stack.pop();
+            temp='';
         }
-        else if(array[i]=='/'||array[i]=='+'||array[i]=='*'||array[i]=='-'||array[i]=='(')
+        else if(array[i]=='/'||array[i]=='+'||array[i]=='*'||array[i]=='-')
         {
+            if(temp!='')
             operand_stack.push(parseFloat(temp));
             while(operator_stack.length!=0&&prec[operator_stack[operator_stack.length-1]]>=prec[array[i]])
             {
@@ -103,6 +128,10 @@ function evalExp(array)
         else
         temp+=array[i];
     }
-    displayText=displayText+"=\n"+operand_stack.pop();
+    history.push({
+        Expression: displayText+'=',
+        Ans: operand_stack[0]
+    });
+    displayText="Ans:="+operand_stack.pop();
     display();
 }

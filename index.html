@@ -18,7 +18,13 @@
                 <!--ANSWERS WILL BE DISPLAYED HERE-->
             </div>
             <div class="keypad">
-                <button class="on-off" id="on-off" onclick="power()">ON/OFF</button>
+                <!-- <button class="on-off" id="on-off" onclick="power()">ON/OFF</button> -->
+                <div class="row">
+                    <button class="on-off" id="on-off" onclick="power()">ON/OFF</button>
+                    <button class="reset" onclick="reset()">C</button>
+                    <button onclick="update('(')">(</button>
+                    <button onclick="update(')')">)</button>
+                </div>
                 <div class="row">
                     <button onclick="update(7)">7</button>
                     <button onclick="update(8)">8</button>
