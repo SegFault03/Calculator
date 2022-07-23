@@ -57,6 +57,15 @@ function display()
     document.getElementById('display').innerHTML=displayText;
 }
 
+function displayHistory()
+{
+    //document.getElementById('history-display').innerHTML='<br>'+history[history.length-1]['Expression']+' '+history[history.length-1]['Ans'];
+    let par=document.getElementById('history-display');
+    let child=document.createElement('p');
+    child.innerHTML='<br>'+history[history.length-1]['Expression']+' '+history[history.length-1]['Ans'];
+    par.appendChild(child);
+}
+
 function eval_op(a,b,op)
 {
     let c=0;
@@ -134,4 +143,5 @@ function evalExp(array)
     });
     displayText="Ans:="+operand_stack.pop();
     display();
+    displayHistory();
 }
