@@ -88,26 +88,24 @@ button{
     border-right: 2px solid black;
     border-left: 2px solid black;
     border-radius:5px;
-    margin: 20px auto;
+    margin: 2px auto;
     height: 80px;
+    overflow: scroll;
 }
 
 h3.history-info{
     color: black;
     font-size: 0.8em;
-    margin:0px auto 2px auto;
+    margin:20px auto 2px auto;
     text-align: center;
     letter-spacing: 0.2em;
 }
 
-.history-display{
+.history-view{
     font-family: 'Orbitron', sans-serif;
     font-size: 0.85em;
     overflow: auto;
     letter-spacing: 2px;
-}
-
-.history-display{
     width: 85%;
     text-align: center;
     margin: 2px auto;
