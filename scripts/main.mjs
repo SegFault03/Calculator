@@ -4,10 +4,11 @@ let prec={
     '+':0,'-':1,'*':2,'/':3,'(':-1
   };
 let operand_stack=[],operator_stack=[];
-let history=[];
+let history={};
 //let reset=true;
 function power()
 {
+    document.getElementById('history-display').innerHTML='';
     document.getElementById('info').innerHTML='There you go!';
     p=!(p);
     if(p)
@@ -30,31 +31,51 @@ function update(value)
     if(!p)
     return;
     document.getElementById('info').innerHTML='Have fun!';
-    if(isNaN(value)&&value!='-'&&value!='='&&value!='('&&value!=')')
+    if(displayText.toString().indexOf('Ans')!=-1)                   //if Ans is present
+    displayText=displayText.substring(displayText.indexOf('=')+1);
+    if(displayText=='0')                                            //if displayText is 0 (Entering for the first time)
     {
-        // if(value===-1)
-        // value='(';
-        // if(value===-2)
-        // value=')';
+        if(isNaN(value)&&value!='='&&value!='('&&value!=')')        //if value is not a number
         displayText+=value.toString();
+        else
+        displayText=value.toString();
     }
     else if(value=='=')
-    {
-        evalExp(displayText+')');
-    }
-    else
-    {
-        if(displayText=='0')
-        displayText=value.toString();
-        else
-        displayText+=value.toString();
-    }
+    evalExp(displayText+')');
+    else                                                            
+    displayText+=value.toString();
     display();
+}
+
+function updateDisplay(full_exp)
+{
+    let key=full_exp.substring(0,full_exp.indexOf('='));
+    let children=document.getElementById('history-display').children;
+    let str='',temp='';
+    for(let i=0;i<children.length;i++)
+    {
+        temp=children[i].innerHTML;
+        if(temp.substring(0,temp.indexOf('='))!=key)
+        str+=temp+'<br>';
+        else
+        break;
+    }
+    document.getElementById('history-display').innerHTML=str;
 }
 
 function display()
 {
     document.getElementById('display').innerHTML=displayText;
+}
+
+function displayHistory(oldDisplayText)
+{
+    let par=document.getElementById('history-display');
+    let child=document.createElement('p');
+    child.innerHTML=oldDisplayText+' = '+history[oldDisplayText];
+    child.className='history-view';
+    //child.onclick=updateDisplay(child.innerHTML);
+    par.appendChild(child);
 }
 
 function eval_op(a,b,op)
@@ -128,10 +149,9 @@ function evalExp(array)
         else
         temp+=array[i];
     }
-    history.push({
-        Expression: displayText+'=',
-        Ans: operand_stack[0]
-    });
+    history[displayText]=operand_stack[0];
+    let oldDisplayText=displayText;
     displayText="Ans:="+operand_stack.pop();
     display();
+    displayHistory(oldDisplayText);
 }

@@ -25,12 +25,12 @@ button{
 
 #info{
    height: 2rem;
-   margin-top: 60px;
+   margin-top: 20px;
    margin-bottom: 50px;
    padding-bottom: 2rem;
 }
 
-h3::first-line{
+#info::first-line{
     color: rgb(197, 61, 61);
     font-size: 30px;
     font-weight: 100;
@@ -80,6 +80,46 @@ h3::first-line{
     background-color: rgb(116, 136, 136);
     height: 77%;
     width: 100%;
+}
+
+.history{
+    min-width: 190px;
+    max-width: 20%;
+    border-right: 2px solid black;
+    border-left: 2px solid black;
+    border-radius:5px;
+    margin: 2px auto;
+    height: 80px;
+    overflow: scroll;
+}
+
+h3.history-info{
+    color: black;
+    font-size: 0.8em;
+    margin:20px auto 2px auto;
+    text-align: center;
+    letter-spacing: 0.2em;
+}
+
+.history-view{
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.85em;
+    overflow: auto;
+    letter-spacing: 2px;
+    width: 85%;
+    text-align: center;
+    margin: 2px auto;
+}
+
+.history-view:hover{
+    border-left: 5px solid rgb(218, 86, 86);
+    border-right: 5px solid rgb(218, 86, 86);
+    border-radius: 8px;
+}
+
+.history-view:focus{
+    background-color:rgb(218, 86, 86);
+    color: white;
 }
 
 .on-off{
