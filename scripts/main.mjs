@@ -4,7 +4,7 @@ let prec={
     '+':0,'-':1,'*':2,'/':3,'(':-1
   };
 let operand_stack=[],operator_stack=[];
-let history=[];
+let history={};
 //let reset=true;
 function power()
 {
@@ -63,12 +63,13 @@ function display()
     document.getElementById('display').innerHTML=displayText;
 }
 
-function displayHistory()
+function displayHistory(oldDisplayText)
 {
     //document.getElementById('history-display').innerHTML='<br>'+history[history.length-1]['Expression']+' '+history[history.length-1]['Ans'];
     let par=document.getElementById('history-display');
     let child=document.createElement('p');
-    child.innerHTML=history[history.length-1]['Expression']+' '+history[history.length-1]['Ans'];
+    // child.innerHTML=history[history.length-1]['Expression']+' '+history[history.length-1]['Ans'];
+    child.innerHTML=oldDisplayText+' = '+history[oldDisplayText];
     child.className='history-view';
     // child.onclick=updateDisplay(child.innerHTML);
     par.appendChild(child);
@@ -145,11 +146,13 @@ function evalExp(array)
         else
         temp+=array[i];
     }
-    history.push({
-        Expression: displayText+'=',
-        Ans: operand_stack[0]
-    });
+    // history.push({
+    //     Expression: displayText+'=',
+    //     Ans: operand_stack[0]
+    // });
+    history[displayText]=operand_stack[0];
+    let oldDisplayText=displayText;
     displayText="Ans:="+operand_stack.pop();
     display();
-    displayHistory();
+    displayHistory(oldDisplayText);
 }

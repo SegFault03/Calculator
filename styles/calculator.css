@@ -85,28 +85,38 @@ button{
 .history{
     min-width: 190px;
     max-width: 20%;
-    border-top: 2px solid black;
+    border-right: 2px solid black;
+    border-left: 2px solid black;
+    border-radius:5px;
     margin: 20px auto;
     height: 80px;
 }
 
 h3.history-info{
     color: black;
-    font-size: 1em;
+    font-size: 0.8em;
     margin:0px auto 2px auto;
     text-align: center;
+    letter-spacing: 0.2em;
 }
 
 .history-display{
     font-family: 'Orbitron', sans-serif;
-    font-size: 0.7em;
+    font-size: 0.85em;
     overflow: auto;
     letter-spacing: 2px;
 }
 
+.history-display{
+    width: 85%;
+    text-align: center;
+    margin: 2px auto;
+}
+
 .history-view:hover{
-    border: 1px solid rgb(218, 86, 86);
-    border-radius: 4px;
+    border-left: 5px solid rgb(218, 86, 86);
+    border-right: 5px solid rgb(218, 86, 86);
+    border-radius: 8px;
 }
 
 .history-view:focus{
