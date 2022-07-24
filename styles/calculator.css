@@ -104,6 +104,16 @@ h3.history-info{
     letter-spacing: 2px;
 }
 
+.history-view:hover{
+    border: 1px solid rgb(218, 86, 86);
+    border-radius: 4px;
+}
+
+.history-view:focus{
+    background-color:rgb(218, 86, 86);
+    color: white;
+}
+
 .on-off{
     background-color: red;
     font-size: 12px;

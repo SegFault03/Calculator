@@ -8,6 +8,7 @@ let history=[];
 //let reset=true;
 function power()
 {
+    document.getElementById('history-display').innerHTML='';
     document.getElementById('info').innerHTML='There you go!';
     p=!(p);
     if(p)
@@ -52,6 +53,11 @@ function update(value)
     display();
 }
 
+function updateDisplay(full_exp)
+{
+    
+}
+
 function display()
 {
     document.getElementById('display').innerHTML=displayText;
@@ -62,7 +68,9 @@ function displayHistory()
     //document.getElementById('history-display').innerHTML='<br>'+history[history.length-1]['Expression']+' '+history[history.length-1]['Ans'];
     let par=document.getElementById('history-display');
     let child=document.createElement('p');
-    child.innerHTML='<br>'+history[history.length-1]['Expression']+' '+history[history.length-1]['Ans'];
+    child.innerHTML=history[history.length-1]['Expression']+' '+history[history.length-1]['Ans'];
+    child.className='history-view';
+    // child.onclick=updateDisplay(child.innerHTML);
     par.appendChild(child);
 }
 
