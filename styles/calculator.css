@@ -10,6 +10,7 @@ body{
     width: 100%;
     height: 100%;
     padding: 2%;
+    background-image: url(../images/background.jpg);
 }
 
 #info{
