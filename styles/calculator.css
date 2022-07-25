@@ -12,41 +12,20 @@ body{
     padding: 2%;
 }
 
-
-button{
-    border: none;
-    border-radius: 6px;
-    width: 25%;
-    height: 35px;
-    margin: 0px 3px;
-    background-color:rgb(44, 41, 41);
-    color:white;
-}
-
 #info{
-   height: 2rem;
-   margin-top: 20px;
-   margin-bottom: 50px;
-   padding-bottom: 2rem;
-}
+    height: 2rem;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    padding-bottom: 2rem;
+ }
+ 
+ #info::first-line{
+     color: rgb(197, 61, 61);
+     font-size: 30px;
+     font-weight: 100;
+ }
 
-#info::first-line{
-    color: rgb(197, 61, 61);
-    font-size: 30px;
-    font-weight: 100;
-}
-
-.row{
-    width: 95%;
-    height: 17%;
-    margin: 4px auto;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
-
-.outer-body{
+ .outer-body{
     /* default width: 25%;  */
     min-width: 250px;
     max-width: 25%;
@@ -57,6 +36,7 @@ button{
     background-color: rgb(59, 69, 70);
     border-radius: 8px;
 }
+
 
 .display{
     /* width: 100%;
@@ -73,6 +53,14 @@ button{
     overflow: auto;
 }
 
+#display{
+    height:100%;
+    width: 100%;
+    font-size: 33px;
+    font-family: 'Orbitron', sans-serif;
+    text-align: right;
+}
+
 .keypad{
     margin-top: 14px;
     border: 1px solid;
@@ -82,44 +70,24 @@ button{
     width: 100%;
 }
 
-.history{
-    min-width: 190px;
-    max-width: 20%;
-    border-right: 2px solid black;
-    border-left: 2px solid black;
-    border-radius:5px;
-    margin: 2px auto;
-    height: 80px;
-    overflow: scroll;
+.row{
+    width: 95%;
+    height: 17%;
+    margin: 6px auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
-h3.history-info{
-    color: black;
-    font-size: 0.8em;
-    margin:20px auto 2px auto;
-    text-align: center;
-    letter-spacing: 0.2em;
-}
-
-.history-view{
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.85em;
-    overflow: auto;
-    letter-spacing: 2px;
-    width: 85%;
-    text-align: center;
-    margin: 2px auto;
-}
-
-.history-view:hover{
-    border-left: 5px solid rgb(218, 86, 86);
-    border-right: 5px solid rgb(218, 86, 86);
-    border-radius: 8px;
-}
-
-.history-view:focus{
-    background-color:rgb(218, 86, 86);
-    color: white;
+button{
+    border: none;
+    border-radius: 6px;
+    width: 25%;
+    height: 39px;
+    margin: 0px 3px;
+    background-color:rgb(44, 41, 41);
+    color:white;
 }
 
 .on-off{
@@ -143,4 +111,96 @@ button#on-off:hover{
 
 button.reset:hover{
     background-color: rgb(33, 45, 207);
+}
+
+.history{
+    min-width: 190px;
+    max-width: 20%;
+    border-right: 2px solid black;
+    border-left: 2px solid black;
+    border-radius:5px;
+    margin: 2px auto;
+    height: 80px;
+    overflow: scroll;
+}
+
+h3.history-info{
+    color: black;
+    font-size: 1em;
+    margin:20px auto 2px auto;
+    text-align: center;
+    letter-spacing: 0.2em;
+}
+
+.history-view{
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.85em;
+    overflow: auto;
+    letter-spacing: 2px;
+    width: 85%;
+    text-align: center;
+    margin: 2px auto;
+}
+
+.history-view:hover{
+    border-left: 3px solid rgb(218, 86, 86);
+    border-right: 3px solid rgb(218, 86, 86);
+    border-radius: 4px;
+}
+
+.history-view:focus{
+    background-color:rgb(218, 86, 86);
+    color: white;
+}
+
+@media (max-width: 768px){      /* for mobile screens */
+    #info{
+        height: 2rem;
+        margin-top: 70px;
+        margin-bottom: 50px;
+        padding-bottom: 4rem;
+    }
+    
+    .outer-body{
+        height: 400px;
+        min-width: 270px;
+        margin-bottom: 28px;
+    }
+
+    .keypad{
+        height: 80%;
+    }
+
+    #display{
+        height: 100%;
+        width: 100%;
+        font-size: 35px;
+        margin: -1px -2px;
+        
+    }
+
+    .display{
+        height: 60px;
+    }
+
+    .row{
+        height: 19%;
+        margin: 2px auto;
+    }
+
+    button{
+        width: 25%;
+        height: 50px;
+    }
+
+    h3.history-info{
+        font-size: 1.2em;
+        letter-spacing: 0.2em;
+    }
+
+    .history{
+        min-width: 240px;
+        height: 100px;
+    }
+
 }
